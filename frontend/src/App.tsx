@@ -1,19 +1,10 @@
-import { useEffect, useState } from 'react';
+import Questions from "./questions/questions";
 
 function App() {
-  const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    fetch('/api/')
-      .then((res) => res.json())
-      .then((data) => setMessage(JSON.stringify(data)))
-      .catch((err) => console.error(err));
-  }, []);
-
   return (
-    <div>
-      <h1>MindScope Frontend</h1>
-      <p>{message}</p>
+    <div style={{ maxWidth: 600, margin: "auto", padding: "1rem" }}>
+      <h1>mindScope</h1>
+      <Questions />
     </div>
   );
 }
