@@ -25,7 +25,7 @@ export default function Questions() {
     const [submitted, setSubmitted] = useState(false)
 
     useEffect(() => {
-        fetch("http://localhost:8000/questions")
+        fetch(`${import.meta.env.VITE_API_URL}/questions`)
             .then((res) => res.json())
             .then((data) => {
                 setQuestions(data)
@@ -47,7 +47,7 @@ export default function Questions() {
     }
 
     async function submitQuiz() {
-        const response = await fetch("http://localhost:8000/submit-quiz", {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/submit-quiz`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ answers }),
